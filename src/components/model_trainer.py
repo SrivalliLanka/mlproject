@@ -49,8 +49,51 @@ class ModelTrainer:
                 "CatBoosting Regressor": CatBoostRegressor(verbose=False),
                 "AdaBoost Regressor": AdaBoostRegressor(),
             }
+
+            params={
+                "Decision Tree": {
+                    'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    'max_features':['sqrt', 'log2', None],
+                    'max_depth': [8, 10, 12],
+                    'max_leaf_nodes': [5, 10, 15, 20, 25],
+                },
+                "Random Forest": {
+                    'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    'max_features':['sqrt', 'log2', None],
+                    'n_estimators': [8, 16, 32, 64, 128, 256]
+                },
+                "Gradient Boosting": {
+                    'loss':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    'learning_rate': [0.1, 0.01, 0.05, 0.001],
+                    'subsample': [0.6, 0.7,0.75, 0.8, 0.85, 0.9],
+                    'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    'max_features':['sqrt', 'log2', None],
+                    'n_estimators': [8, 16, 32, 64, 128, 256]
+                },
+                "Linear Regression": {},
+                "K-Neighbors Regressor": {
+                    'n_neighbors': [5, 7, 9, 11],
+                    'weights': ['uniform', 'distance'],
+                    'metric': ['euclidean', 'manhattan', 'minkowski']
+                },
+                "XGBRegressor": {
+                    'learning_rate': [0.1, 0.01, 0.05, 0.001],
+                    'n_estimators': [8, 16, 32, 64, 128, 256]
+                },
+                "CatBoosting Regressor": {
+                    'depth': [6, 8, 10],
+                    'learning_rate': [0.01, 0.05, 0.1],
+                    'iterations': [30, 50, 100]
+                },
+                "AdaBoost Regressor": {
+                    'learning_rate': [0.1, 0.01, 0.05, 0.001],
+                    'n_estimators': [8, 16, 32, 64, 128, 256]
+                }
+            }
+
+
             
-            model_report:dict=evaluate_models(X_train,y_train,X_test,y_test,models=models)
+            model_report:dict=evaluate_models(X_train,y_train,X_test,y_test,models=models,param=params)
 
 
             ## To get best model score from dict
