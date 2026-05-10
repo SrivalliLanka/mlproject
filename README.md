@@ -1,4 +1,4 @@
-# Student Math Score Predictor — End-to-End ML Project
+# Student Score Predictor — End-to-End ML Project
 
 A production-ready machine learning application that predicts a student's **math score** based on demographic information and performance in reading and writing. The project covers the full ML lifecycle: exploratory data analysis, modular training pipeline, automated model selection, and a Flask web application deployed on **AWS Elastic Beanstalk**.
 
