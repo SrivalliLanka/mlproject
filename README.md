@@ -156,9 +156,7 @@ This two-artifact design (separate preprocessor + model) keeps the feature engin
 
 ## Web Application
 
-| Landing Page | Prediction Form |
-|:---:|:---:|
-| ![Landing Page](images/landing_page.png) | ![Prediction Form](images/prediction_form.png) |
+![Web App](images/prediction_form.png)
 
 `app.py` exposes two Flask routes:
 
